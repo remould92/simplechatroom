@@ -50,7 +50,7 @@ func handleClient(conn net.Conn) {
 				if connSlice[i] == conn {
 					continue
 				} else {
-					_, err := connSlice[i].Write([]byte(conn.LocalAddr().String() + ":  " + string(request[:read_len])))
+					_, err := connSlice[i].Write([]byte(conn.RemoteAddr().String() + ":  " + string(request[:read_len])))
 					checkError(err)
 				}
 			}
